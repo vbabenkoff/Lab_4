@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define SIZE 16
+
+void output_mas(float *mas, int n)
+{
+	int i;
+	for(i = 0; i < n; i++) 
+		printf("\n\tmas[%2d] = %lf", i, mas[i]);
+}
+
+float max_chislo(float *mas, int n)
+{
+	int i;
+	float max = 0;
+	
+	for(i = 0; i < n; i++)
+		if(mas[i] > max)
+			max = mas[i];
+		
+	return max;	
+}
+
+int main()
+{
+	float mas[SIZE], x, max;
+	int i;
+	srand(time(0));
+	
+	for(i = 0; i < SIZE; i++)
+		mas[i] = ((float)rand() / RAND_MAX) * 10.0;
+	
+	output_mas(mas, SIZE);
+	max = max_chislo(mas, SIZE);
+	printf("\n\tMAX: %lf", max);
+	
+	for (i = 0; i < SIZE; i++){
+	    if(mas[i] == max)
+                kolichestvo++;
+	}
+	printf("\nMax chislo povtoriaetsa %d raz", kolichestvo);
+	
+	return 0;
+}
