@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+	int mas1[11], mas2[11];
+	int i;
+	srand(time(0));
+	
+	for(i = 0; i < 11; i++){
+		mas1[i] = rand()%50;
+		printf("\nmas[%d] = %d", i, mas1[i]);
+	}
+	printf("\n\nNew masiv:");
+	for(i = 0; i < 11; i++){
+      mas2[i] = mas1[11-(i+1)];
+      printf("\nmas[%d] = %d", i, mas2[i]);
+	}
+	
+	return 0;
+}
